@@ -16,7 +16,7 @@ const difficultyButtons = document.querySelectorAll('.difficulty-btn');
 
 // Results buttons
 const btnPlayAgain = document.getElementById('play-again-btn');
-const btnTryHard = document.getElementById('try-hard-btn'); // NEW: Upsell button
+const btnTryHard = document.getElementById('try-hard-btn'); // Upsell button
 
 // Header nav buttons
 const btnRetake = document.getElementById('btn-retake');
@@ -49,7 +49,7 @@ let currentDifficulty = '';
 
 // Timer variables
 let timerInterval;
-let timeLeft = 10;
+let timeLeft = 15; // <-- UPDATED TO 15
 let keyPressHistory = []; // For "0+0" shortcut
 
 // --- 4. Core Game Functions ---
@@ -61,7 +61,7 @@ function stopTimer() {
 
 function startTimer() {
     stopTimer(); 
-    timeLeft = 15;
+    timeLeft = 15; // <-- UPDATED TO 15
     keyPressHistory = []; // Reset key history
     timerEl.textContent = timeLeft;
     timerEl.className = ''; 
@@ -132,13 +132,8 @@ function getNewQuestion() {
         updateStats(); 
         currentQuestion = quizShortcuts[questionCount];
         
-        // Add category to question for clarity
-        const category = currentQuestion.name.match(/\((.*?)\)/);
-        if (category) {
-            questionEl.innerHTML = currentQuestion.name.replace(category[0], '').trim() + `<br><span style="font-size: 20px; font-weight: 500; opacity: 0.7;">(${category[1]})</span>`;
-        } else {
-            questionEl.textContent = currentQuestion.name;
-        }
+        // Use the 'name' field directly, which now excludes the category
+        questionEl.textContent = currentQuestion.name;
         
         answerEl.textContent = '';
         answerEl.className = '';
@@ -150,7 +145,7 @@ function getNewQuestion() {
         showResults();
     }
 }
-
+        
 function updateStats() {
     scoreDisplay.textContent = `Score: ${score}`;
     questionCounter.textContent = `Question: ${questionCount + 1} / ${totalQuestions}`;
@@ -167,7 +162,7 @@ function showResults() {
 
     finalScoreEl.textContent = `You got ${score} out of ${totalQuestions} correct.`;
     
-    // NEW: Hide upsell button by default
+    // Hide upsell button by default
     btnTryHard.classList.add('hidden');
     
     let badgeHTML = '';
@@ -182,7 +177,7 @@ function showResults() {
     }
     badgeDisplay.innerHTML = badgeHTML;
     
-    // NEW: Upsell logic
+    // Upsell logic
     if (currentDifficulty === 'easy' && score >= 8) {
         btnTryHard.classList.remove('hidden');
     }
@@ -206,12 +201,12 @@ function formatKey(key) {
     if (key === 'altKey') return (currentOS === 'mac') ? '⌥' : 'Alt';
     if (key === 'escape') return 'Esc';
     if (key === 'enter') return '↩';
-    if (key === 'Backspace') return (currentOS ==='mac') ? '⌫' : 'Backspace';
-    if (key === 'Delete') return 'Del';
-    if (key === 'PageUp') return 'Page Up';
-    if (key === 'PageDown') return 'Page Down';
-    if (key === 'Home') return 'Home';
-    if (key === 'End') return 'End';
+    if (key === 'backspace') return (currentOS ==='mac') ? '⌫' : 'Backspace'; // Updated
+    if (key === 'delete') return 'Del'; // Updated
+    if (key === 'pageup') return 'Page Up'; // Updated
+    if (key === 'pagedown') return 'Page Down'; // Updated
+    if (key === 'home') return 'Home'; // Updated
+    if (key === 'end') return 'End'; // Updated
     if (key === 'tab') return 'Tab';
     if (key === 'space') return 'Space';
     if (key === '=') return '+'; // Handle the zoom-in key
@@ -368,7 +363,7 @@ difficultyButtons.forEach(button => {
 // Results
 btnPlayAgain.addEventListener('click', resetGame);
 
-// NEW: Upsell button listener
+// Upsell button listener
 btnTryHard.addEventListener('click', () => {
     startGame('hard');
 });
@@ -380,10 +375,24 @@ btnRetake.addEventListener('click', (e) => {
         startGame(currentDifficulty); 
     }
 });
+
+// NEW: ENHANCED HELP BUTTON
 btnHelp.addEventListener('click', (e) => {
     e.preventDefault();
-    alert("Help: Press the key combination that matches the prompt! \n\n✓ = Correct \n✗ = Incorrect");
+    // Use \n to create new lines in an alert
+    alert(
+        "--- Game Rules ---\n\n" +
+        "1. Press the key combination for the action shown.\n" +
+        "2. You have 15 seconds for each question.\n" +
+        "3. Get a Gold (10) or Silver (8+) medal on Easy to unlock the 'Try Hard' challenge!\n\n" +
+        "--- Disclaimer ---\n" +
+        "This game is a fan project and is not affiliated with Figma. The shortcut list is based on community data and might be prone to errors.\n\n" +
+        "--- Feedback ---\n" +
+        "For any improvements or bugs, please email:\n" +
+        "dominic.intel@gmail.com"
+    );
 });
+
 btnExit.addEventListener('click', (e) => {
     e.preventDefault();
     resetGame(); 
