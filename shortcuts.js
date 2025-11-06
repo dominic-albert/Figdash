@@ -1,4 +1,4 @@
-// --- 1. The NEW Questions List (136 Questions from sheet.html) ---
+// --- 1. The NEW Questions List (134 Questions from sheet new.html) ---
 // This file is designed to be imported by logic.js
 // Category names have been excluded from the 'name' field as requested.
 const shortcuts = [
@@ -46,7 +46,7 @@ const shortcuts = [
     { name: "Zoom to next frame", win: ['n'], mac: ['n'], difficulty: "easy" },
     { name: "Bold", win: ['ctrlKey', 'b'], mac: ['metaKey', 'b'], difficulty: "easy" },
     { name: "Italic", win: ['ctrlKey', 'i'], mac: ['metaKey', 'i'], difficulty: "easy" },
-    { name: "Create link", win: ['ctrlKey', 'shiftKey', 'u'], mac: ['metaKey', 'shiftKey', 'u'], difficulty: "easy" },
+    { name: "Create link", win: ['ctrlKey', 'k'], mac: ['metaKey', 'k'], difficulty: "easy" },
     { name: "Strikethrough", win: ['ctrlKey', 'shiftKey', 'x'], mac: ['metaKey', 'shiftKey', 'x'], difficulty: "easy" },
     { name: "Turn bulleted list on/off", win: ['shiftKey', 'ctrlKey', '7'], mac: ['shiftKey', 'metaKey', '7'], difficulty: "hard" },
     { name: "Turn numbered list on/off", win: ['shiftKey', 'ctrlKey', '8'], mac: ['shiftKey', 'metaKey', '8'], difficulty: "hard" },
@@ -117,18 +117,18 @@ const shortcuts = [
     { name: "Align bottom", win: ['altKey', 's'], mac: ['altKey', 's'], difficulty: "hard" },
     { name: "Align horizontal centers", win: ['altKey', 'h'], mac: ['altKey', 'h'], difficulty: "hard" },
     { name: "Align vertical centers", win: ['altKey', 'v'], mac: ['altKey', 'v'], difficulty: "hard" },
-    { name: "Distribute horizontal spacing", win: ['altKey', 'shiftKey', 'h'], mac: ['altKey', 'shiftKey', 'h'], difficulty: "hard" },
-    { name: "Distribute vertical spacing", win: ['altKey', 'shiftKey', 'v'], mac: ['altKey', 'shiftKey', 'v'], difficulty: "hard" },
-    { name: "Tidy up", win: ['ctrlKey', 'altKey', 'shiftKey', 't'], mac: ['metaKey', 'altKey', 'shiftKey', 't'], difficulty: "hard" },
+    { name: "Distribute horizontal spacing", win: ['altKey', 'shiftKey', 'h'], mac: ['ctrlKey', 'shiftKey', 'h'], difficulty: "hard" },
+    { name: "Distribute vertical spacing", win: ['altKey', 'shiftKey', 'v'], mac: ['ctrlKey', 'shiftKey', 'v'], difficulty: "hard" },
+    { name: "Tidy up", win: ['ctrlKey', 'altKey', 'shiftKey', 't'], mac: ['ctrlKey', 'shiftKey', 't'], difficulty: "hard" },
     { name: "Add auto layout", win: ['shiftKey', 'a'], mac: ['shiftKey', 'a'], difficulty: "easy" },
     { name: "Remove auto layout", win: ['altKey', 'shiftKey', 'a'], mac: ['altKey', 'shiftKey', 'a'], difficulty: "easy" },
-    { name: "Suggest auto layout", win: ['ctrlKey', 'altKey', 'shiftKey', 'a'], mac: ['metaKey', 'altKey', 'shiftKey', 'a'], difficulty: "easy" },
+    { name: "Suggest auto layout", win: ['ctrlKey', 'altKey', 'shiftKey', 'a'], mac: ['ctrlKey', 'shiftKey', 'a'], difficulty: "hard" },
     { name: "Show assets", win: ['altKey', '2'], mac: ['altKey', '2'], difficulty: "hard" },
     { name: "Team library", win: ['altKey', '3'], mac: ['altKey', '3'], difficulty: "hard" },
     { name: "Create component", win: ['ctrlKey', 'altKey', 'k'], mac: ['metaKey', 'altKey', 'k'], difficulty: "hard" },
     { name: "Detach instance", win: ['ctrlKey', 'altKey', 'b'], mac: ['metaKey', 'altKey', 'b'], difficulty: "hard" },
     { name: "Component search", win: ['shiftKey', 'i'], mac: ['shiftKey', 'i'], difficulty: "hard" },
-    { name: "Show figma Keyboard shortcuts", win: ['ctrlKey', 'shiftKey', '?'], mac: ['metaKey', 'shiftKey', '?'], difficulty: "hard" },
+    { name: "Show figma Keyboard shortcuts", win: ['ctrlKey', 'shiftKey', '?'], mac: ['ctrlKey', 'shiftKey', '?'], difficulty: "hard" },
     { name: "Export", win: ['ctrlKey', 'shiftKey', 'e'], mac: ['metaKey', 'shiftKey', 'e'], difficulty: "easy" },
     { name: "Present prototype", win: ['ctrlKey', 'altKey', 'enter'], mac: ['metaKey', 'altKey', 'enter'], difficulty: "easy" },
     { name: "Preview prototype", win: ['shiftKey', 'space'], mac: ['shiftKey', 'space'], difficulty: "easy" },
@@ -136,8 +136,7 @@ const shortcuts = [
     { name: "Content scale in prototype", win: ['z'], mac: ['z'], difficulty: "hard" },
     { name: "Run last plugin", win: ['ctrlKey', 'altKey', 'p'], mac: ['metaKey', 'altKey', 'p'], difficulty: "easy" },
     { name: "Cursor chat", win: ['/'], mac: ['/'], difficulty: "easy" },
-    { name: "Switch to dev mode", win: ['shiftKey', 'd'], mac: ['shiftKey', 'd'], difficulty: "hard" },
-    { name: "Copy file link", win: ['ctrlKey', 'l'], mac: ['metaKey', 'l'], difficulty: "easy" }
+    { name: "Switch to dev mode", win: ['shiftKey', 'd'], mac: ['shiftKey', 'd'], difficulty: "hard" }
 ];
 
 // This line makes the array "importable" by logic.js
